@@ -1,0 +1,62 @@
+<section id="download" class="download text-center bg-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <p id="notice"><%= notice %></p>
+
+        <p>
+          <strong>First name:</strong>
+          <%= @photo.first_name %>
+        </p>
+
+        <p>
+          <strong>Last name:</strong>
+          <%= @photo.last_name %>
+        </p>
+
+        <p>
+          <strong>Phone:</strong>
+          <%= @photo.phone %>
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          <%= @photo.email %>
+        </p>
+
+        <p>
+          <strong>published:</strong>
+          <%= @photo.published %>
+        </p>
+
+        <p>
+          <strong>pass:</strong>
+          <%= @photo.pass %>
+        </p>
+
+        <p>
+          <strong>Number:</strong>
+          <%= @photo.number %>
+        </p>
+
+        <p>
+          <strong>Avatar:</strong>
+          <% @photo.avatars.each do |p| %>
+          <div class="alert alert-info">
+          <%= image_tag p.url(:thumb) %>
+          <%= link_to "medium" , p.url(:medium),class: "btn btn-primary" %>
+          <%= link_to "original" , p.url ,class: "btn btn-primary"%>
+        </div>
+          <% end %>
+        </p>
+
+
+
+        <%= link_to 'Edit', edit_photo_path(@photo) %> |
+        <%= link_to 'Back', photos_path %>
+
+      </div>
+    </div>
+  </div>
+</section>

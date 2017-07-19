@@ -1,0 +1,147 @@
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="header-content">
+                    <div class="header-content-inner ">
+                        <h1 class="farsi_font" style="text-algin:right">
+                          کد خصوصی شما:
+                        </h1>
+                        <%= form_tag check_photos_path do %>
+                        <%= text_field_tag  "pass" , "" , class: "form-control input" , placeholder: "KADRO***" %>
+                        <br>
+                        <button href="#download" class="btn btn-outline btn-xl page-scroll farsi_font" type="submit" style="background:none;">
+                          دریافت عکس من
+                        </butotn>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="device-container">
+                    <div class="device-mockup iphone6_plus portrait white">
+                        <div class="device">
+                            <div class="screen">
+                                <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                                 <%= image_tag "poster.jpg" , class:"img-responsive" %>
+                            </div>
+                            <div class="button">
+                                <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--
+
+<section id="download" class="download text-center bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h2 class="section-heading farsi_font">
+                  فوتوتو چیست؟
+                  </h2>
+                <p class="farsi_font">
+                  به مدت ۲ هفته، روز های یک شنبه، سه شنبه و جمعه
+                  در ایل کافه دور هم جمع شویم،
+                  <br>
+                  کادرو شما را به یک عکس پرتره مهمان می کند.
+                </p>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section id="features" class="features"  style="background:black;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="section-heading">
+                    <h2 class="farsi_font" style="color:white">
+                      یک عکس پرتره مهمان ما باشید
+                      </h2>
+                    <p class="text-muted farsi_font">
+                      ایل کافه،
+                      خیابان فلسطین، بین زرتشت و بولوار کشاورز، نبش میرسرابی
+                    </p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          <!--
+            <div class="col-md-4">
+                <div class="device-container">
+                    <div class="device-mockup iphone6_plus portrait white">
+                        <div class="device">
+                            <div class="screen">
+                                 <%= image_tag "poster2.jpg", class:"img-responsive img-rounded"%> </div>
+                            <div class="button">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             -->
+            <div class="col-md-12">
+                <div class="container-fluid">
+                    <div class="row">
+                      <% Photo.all.where(:published=>true).each do |p| %>
+                        <% p.avatars.each do |f| %>
+                          <div class="col-md-4 col-xs-12">
+                              <div class="feature-item">
+                                  <%= image_tag f.url(:medium) , class: "img-responsive " %>
+                              </div>
+                          </div>
+                          <% end %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="cta-content">
+        <div class="container">
+            <h2 style="font-family:iranyekan-bold; color:#245eb5 ">عکاسی
+              <br>
+              برای
+              <br>
+              تو
+            </h2>
+            <a href="https://www.kadro.co" class="btn btn-outline btn-xl page-scroll farsi_font" style="color:#245eb5">
+              بریم ببینیم!
+            </a>
+        </div>
+    </div>
+    <!-- <div class="overlay"></div> -->
+</section>
+
+<section id="contact" class="contact bg-primary">
+    <div class="container ">
+        <h2 class="farsi_font">
+          ما
+          <i class="fa fa-heart"></i>
+          شما هستیم!
+         </h2>
+        <ul class="list-inline list-social">
+            <li class=" ">
+                <a href="https://twitter.com/kadro_co"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li class=" ">
+                <a href="https://www.linkedin.com/company-beta/13340028/"><i class="fa fa-linkedin"></i></a>
+            </li>
+            <li class=" ">
+                <a href="https://instagram.com/kadro_co"><i class="fa fa-instagram"></i></a>
+            </li>
+            <li class=" ">
+              <a href="https://www.facebook.com/kadro.co"><i class="fa fa-facebook"></i></a>
+            </li>
+        </ul>
+    </div>
+</section>
