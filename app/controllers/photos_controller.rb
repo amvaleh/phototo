@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  http_basic_authenticate_with name: "kadroadmin", password: "09027993049Kadro.co" , except: [:check , :download]
+  http_basic_authenticate_with name: "kadroadmin", password: "phototo2017" , except: [:check , :download]
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   def check
