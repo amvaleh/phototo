@@ -12,29 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %>
+    <%= f.label "نام" %>
     <%= f.text_field :first_name ,class: "form-control text-center farsi_font" %>
   </div>
 
   <br>
 
   <div class="field">
-    <%= f.label :last_name %>
+    <%= f.label "نام خانوادگی" %>
     <%= f.text_field :last_name,class: "form-control text-center farsi_font" %>
   </div>
   <br>
 
 
   <div class="field">
-    <%= f.label :phone %>
+    <%= f.label "شماره موبایل" %>
     <%= f.number_field :phone ,class: "form-control text-center farsi_font"%>
   </div>
 
   <br>
 
   <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email ,class: "form-control text-center farsi_font"%>
+    <%= f.label "ایمیل" %>
+    <%= f.email_field :email ,class: "form-control text-center farsi_font"%>
   </div>
 
   <br>
@@ -43,7 +43,7 @@
     border-style: groove;
     border-color: white; max-width: 100% !important;">
   <h3>
-    Thank you!
+    با تشکر از شما
   </h3>
 
   <hr style="color: white;
@@ -55,14 +55,14 @@
 
   <div class="field">
     <%= f.label "photo number"%>
-    <%= f.text_field :number ,class: "form-control text-center farsi_font"%>
+    <%= f.text_field :number ,class: "form-control text-center farsi_font", placeholder: "شماره عکس دوربین" %>
   </div>
 
   <br>
 
   <div class="field">
     <%= f.label "password" %>
-    <%= f.text_field :pass ,class: "form-control text-center farsi_font"%>
+    <%= f.text_field :pass ,class: "form-control text-center farsi_font" , placeholder: "چیزی وارد نکنید!" %>
   </div>
 
   <br>
@@ -76,11 +76,11 @@
 
   <div class="field">
     <%= f.label :published %>
-    <%= f.check_box :published , class: "form-control text-center" %>
+    <%= f.check_box :published , class: "form-control text-center"  %>
   </div>
 
   <br>
   <div class="actions">
-    <%= f.submit "ثبت" , class: "btn btn-inverse btn-block" %>
+    <%= f.submit "ثبت" , class: "btn btn-primary btn-block" %>
   </div>
 <% end %>
