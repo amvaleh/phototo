@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     end
     member do
       get :download
+      post :alert_photo_ready
     end
   end
 

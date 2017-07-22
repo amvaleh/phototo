@@ -5,6 +5,13 @@
 
         <p id="notice"><%= notice %></p>
 
+        <%= form_tag alert_photo_ready_photo_path do %>
+          <%= submit_tag "اعلان عکس ها آماده است" , class: "btn btn-danger btn-large" %>
+        <% end %>
+
+        <br>
+        <br>
+
         <p>
           <strong>First name:</strong>
           <%= @photo.first_name %>
@@ -40,6 +47,19 @@
           <%= @photo.number %>
         </p>
 
+
+        <p>
+          <strong>Alerted:</strong>
+          <%= @photo.alerted %>
+        </p>
+
+        <p>
+          <strong>view_times:</strong>
+          <%= @photo.view_times %>
+        </p>
+
+
+
         <p>
           <strong>Avatar:</strong>
           <% @photo.avatars.each do |p| %>
@@ -50,6 +70,8 @@
         </div>
           <% end %>
         </p>
+
+
 
 
 

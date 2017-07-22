@@ -1,9 +1,8 @@
 class Photo < ApplicationRecord
   mount_uploaders :avatars, AvatarUploader
   serialize :avatars, JSON
-  
-  after_create :create_pass
 
+  after_create :create_pass
 
 
   def create_pass

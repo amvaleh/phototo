@@ -1,13 +1,22 @@
 class PhotosController < ApplicationController
   http_basic_authenticate_with name: "kadroadmin", password: "phototo2017" , except: [:check , :download]
-  before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :set_photo, only: [:show, :edit, :update, :destroy,:alert_photo_ready]
+
+
+  def alert_photo_ready
+      p = "سلام، #{@photo.first_name if @photo.first_name.present?} #{@photo.last_name if @photo.last_name.present?} عزیز، عکس های شما آماده شده است.، از آدرس زیر می تونید مشاهده و دانلود کنید :) \n http://phototo.kadro.co \n کد خصوصی شما: #{@photo.pass} \n تیم کادرو"
+      res = send_sms(@photo.phone , p)
+      @photo.alerted = true
+      @photo.save
+      redirect_to @photo , notice: "پیام ارسال شد"
+  end
 
   def check
     if params[:pass].present?
       pass = params[:pass]
       if Photo.exists?(pass: pass)
         p = Photo.find_by_pass(pass)
-        redirect_to download_photo_path(p.phone)
+        redirect_to download_photo_path(p.pass)
       else
         redirect_to root_path , :notice => "آخ، پیدا نشد، کد خصوصیت رو چک کن دوباره :)"
       end
@@ -17,7 +26,9 @@ class PhotosController < ApplicationController
   end
 
   def download
-    @photo = Photo.find_by_phone(params[:id])
+    @photo = Photo.find_by_pass(params[:id])
+    @photo.view_times = @photo.view_times + 1
+    @photo.save
   end
 
 
@@ -31,6 +42,7 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.json
   def show
+
   end
 
   # GET /photos/new
